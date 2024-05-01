@@ -10,7 +10,7 @@ def run(episodes, is_training=True, render=False):
     if is_training:
         Q = np.zeros((env.observation_space.n, env.action_space.n)) # q_table init a 64 x 4 array with zeros
     else:
-        with open("Reinforcement Learning/frozen_lake8x8.pkl", "rb") as f:
+        with open("frozen_lake8x8.pkl", "rb") as f:
             Q = pickle.load(f)
     
     alpha = 0.9 # alpha or learning rate
@@ -69,10 +69,10 @@ def run(episodes, is_training=True, render=False):
     plt.xlabel('Episode')
     plt.ylabel('Average Reward')
     plt.grid(True)
-    plt.savefig('Reinforcement Learning/frozen_lake8x8.png')
+    plt.savefig('frozen_lake8x8.png')
 
     if is_training:
-        f = open("Reinforcement Learning/frozen_lake8x8.pkl","wb")
+        f = open("frozen_lake8x8.pkl", "wb")
         pickle.dump(Q, f)
         f.close()
 
